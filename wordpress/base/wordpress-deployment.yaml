@@ -10,6 +10,7 @@ metadata:
     app.kubernetes.io/component: wordpress
     app.kubernetes.io/instance: wordpress
   name: wordpress
+  namespace: wordpress
   selfLink: /apis/apps.openshift.io/v1/namespaces/burndown/deploymentconfigs/wordpress
 spec:
   replicas: 1

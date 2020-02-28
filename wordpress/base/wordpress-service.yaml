@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/component: wordpress
     app.kubernetes.io/instance: wordpress
   name: wordpress
+  namespace: wordpress
   selfLink: /api/v1/namespaces/burndown/services/wordpress
 spec:
   ports:

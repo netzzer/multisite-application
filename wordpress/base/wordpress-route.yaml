@@ -3,6 +3,7 @@ kind: Route
 metadata:
   creationTimestamp: null
   name: wordpress
+  namespace: wordpress
   selfLink: /apis/route.openshift.io/v1/namespaces/burndown/routes/wordpress
 spec:
   host: wordpress.demo-sysdeseng.com
