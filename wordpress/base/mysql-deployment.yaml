@@ -110,10 +110,3 @@ spec:
         namespace: openshift
     type: ImageChange
   - type: ConfigChange
-status:
-  availableReplicas: 0
-  latestVersion: 0
-  observedGeneration: 0
-  replicas: 0
-  unavailableReplicas: 0
-  updatedReplicas: 0
