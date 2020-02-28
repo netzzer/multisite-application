@@ -12,7 +12,6 @@ metadata:
     template: mysql-persistent-template
   name: mysql
   namespace: wordpress
-  selfLink: /api/v1/namespaces/burndown/services/mysql
 spec:
   ports:
   - name: mysql

@@ -11,7 +11,6 @@ metadata:
     app.kubernetes.io/instance: wordpress
   name: wordpress
   namespace: wordpress
-  selfLink: /apis/apps.openshift.io/v1/namespaces/burndown/deploymentconfigs/wordpress
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -62,7 +61,7 @@ spec:
       from:
         kind: ImageStreamTag
         name: wordpress:latest
-        namespace: burndown
+        namespace: wordpress
     type: ImageChange
 status:
   availableReplicas: 0

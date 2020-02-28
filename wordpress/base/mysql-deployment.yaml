@@ -13,7 +13,6 @@ metadata:
     template: mysql-persistent-template
   name: mysql
   namespace: wordpress
-  selfLink: /apis/apps.openshift.io/v1/namespaces/burndown/deploymentconfigs/mysql
 spec:
   replicas: 1
   revisionHistoryLimit: 10
