@@ -1,18 +1,19 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  creationTimestamp: null
   name: wordpress
   namespace: wordpress
-  selfLink: /apis/route.openshift.io/v1/namespaces/burndown/routes/wordpress
 spec:
-  host: wordpress.demo-sysdeseng.com
+  host: wordpress.demo-sysdeseng.com 
   port:
     targetPort: 8080
   to:
     kind: Service
     name: wordpress
     weight: 100
-  wildcardPolicy: None
 status:
-  ingress: null
+  ingress:
+  - conditions:
+    - status: "True"
+      type: Admitted
+
