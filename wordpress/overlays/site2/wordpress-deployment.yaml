@@ -1,0 +1,11 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: wordpress
+    app.kubernetes.io/component: wordpress
+    app.kubernetes.io/instance: wordpress
+  name: wordpress
+  namespace: wordpress
+spec:
+  replicas: 1
