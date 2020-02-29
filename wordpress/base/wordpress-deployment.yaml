@@ -34,7 +34,7 @@ spec:
         deploymentconfig: wordpress
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/burndown/wordpress@sha256:ac9de9430616f10fff8fda301abad84d26f2db446ddf94de0916900f5da12b2d
+      - image: quay.io/rcook/wordpress:1.0 
         imagePullPolicy: Always
         name: wordpress
         ports:
