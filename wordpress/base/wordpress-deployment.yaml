@@ -10,8 +10,6 @@ spec:
   selector:
     matchLabels:
       name: wordpress
-      deployment: wordpress
-      app: wordpress
   template:
     metadata:
       labels:
