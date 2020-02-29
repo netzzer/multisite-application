@@ -5,3 +5,4 @@ resources:
 - mysql-service.yaml
 - wordpress-deployment.yaml
 - wordpress-service.yaml
+- mysql-secret.yaml
