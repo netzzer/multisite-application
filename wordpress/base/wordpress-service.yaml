@@ -21,7 +21,7 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    deploymentconfig: wordpress
+    deployment: wordpress
   sessionAffinity: None
   type: ClusterIP
 status:
