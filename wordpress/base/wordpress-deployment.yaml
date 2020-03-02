@@ -35,9 +35,9 @@ spec:
         - name: wp-images
           mountPath: /opt/app-root/src/wp-content/images
       volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+      - name: wp-config
+        secret:
+          secretName: wp-config
       - name: wp-images
         persistentVolumeClaim:
           claimName: wp-images-pvc
