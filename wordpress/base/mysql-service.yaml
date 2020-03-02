@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/instance: wordpress
     template: mysql-persistent-template
   name: mysql
+  namespace: wordpress
 spec:
   ports:
   - port: 3306
