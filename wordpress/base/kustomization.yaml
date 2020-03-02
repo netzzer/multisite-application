@@ -1,7 +1,3 @@
-secretGenerator:
-- name: mysql-pass
-  literals:
-  - password=safteydance
 resources:
 - mysql-deployment.yaml
 - namespace.yaml
