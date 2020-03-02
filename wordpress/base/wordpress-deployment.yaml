@@ -28,11 +28,10 @@ spec:
           - mountPath: "/opt/app-root/src"
             name: wp-config.php
             readOnly: false
-      volumes:
-        - name: wp-config
-          secret:
-            secretName: wp-config
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
-
+      volumes:
+      - name: wp-config
+        secret:
+          secretName: wp-config
