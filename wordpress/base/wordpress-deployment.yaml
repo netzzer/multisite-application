@@ -30,7 +30,7 @@ spec:
         volumeMounts:
         - name: wp-config
           mountPath: /opt/app-root/src/wp-config.php
-          subPath: wp-config
+          subPath: wp-config.php
           readOnly: false
       volumes:
       - name: wp-config
