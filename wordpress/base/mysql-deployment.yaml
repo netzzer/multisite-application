@@ -23,10 +23,7 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql
-              key: databse-root-password
+          value: wordpress
         - name: MYSQL_DATABASE
           value: wordpress
         - name: MYSQL_USER
