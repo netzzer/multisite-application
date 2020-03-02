@@ -6,4 +6,3 @@ resources:
 - wordpress-deployment.yaml
 - wordpress-service.yaml
 - mysql-secret.yaml
-- wp-config-secret.yaml
