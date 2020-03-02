@@ -30,7 +30,7 @@ spec:
         volumeMounts:
         - name: wp-config
           mountPath: /opt/app-root/src
-          subPath: wp-config.php
+          subPath: wp-config
       volumes:
       - name: wp-config
         secret:
