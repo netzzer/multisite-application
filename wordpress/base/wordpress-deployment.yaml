@@ -29,8 +29,8 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: wp-config
-          mountPath: /opt/app-root/src
-          subPath: wp-config.php
+          mountPath: /opt/app-root/src/wp-config.php
+          subPath: wp-config
           readOnly: false
       volumes:
       - name: wp-config
