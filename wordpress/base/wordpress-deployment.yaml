@@ -26,7 +26,7 @@ spec:
           protocol: TCP
         volumeMounts:
           - mountPath: "/opt/app-root/src"
-            name: wp-config.php
+            name: wp-config
             readOnly: false
         resources: {}
         terminationMessagePath: /dev/termination-log
