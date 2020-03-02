@@ -19,11 +19,19 @@ spec:
       - image: quay.io/rcook/wordpress:1.0
         imagePullPolicy: Always
         name: wordpress
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
         ports:
         - containerPort: 8080
           protocol: TCP
         - containerPort: 8443
           protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
+      volumeMounts:
+      - name: wp-config
+        mountPath: /opt/app-root/src
+        subPath: wp-config.php
+  volumes:
+    - name: wp-config
+      secret:
+        secretName: wp-config
