@@ -6,9 +6,9 @@ metadata:
     template.openshift.io/expose-uri: mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mysql")].port}
   creationTimestamp: null
   labels:
-    app: mysql-persistent
-    app.kubernetes.io/component: mysql-persistent
-    app.kubernetes.io/instance: mysql-persistent
+    app: mysql
+    app.kubernetes.io/component: mysql
+    app.kubernetes.io/instance: mysql
     template: mysql-persistent-template
   name: mysql
   namespace: wordpress
