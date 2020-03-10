@@ -19,7 +19,7 @@ spec:
       - name: init-container
         image: quay.io/rcook/wordpress:1.0
         command: ["/bin/bash","-c"]
-        args: [ "cp -rp /opt/app-root/src/ /var/www/html/ ; sleep 3000" ]
+        args: [ "cp -rp /opt/app-root/src/wp* /var/www/html/ ; sleep 3000" ]
       containers:
       - image: quay.io/rcook/wordpress:1.0
         imagePullPolicy: Always
