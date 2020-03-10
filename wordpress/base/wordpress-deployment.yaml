@@ -32,7 +32,12 @@ spec:
           mountPath: /opt/app-root/src/wp-config.php
           subPath: wp-config.php
           readOnly: false
+        - name: wordpress-persistent-storage
+          mountPath: /var/www/html
       volumes:
       - name: wp-config
         secret:
           secretName: wp-config
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: wp-pv-claim
