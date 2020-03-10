@@ -9,5 +9,5 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: rook-ceph-block-mirror
+  storageClassName: rook-ceph-block-test
   volumeMode: Filesystem
