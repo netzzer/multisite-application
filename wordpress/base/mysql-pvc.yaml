@@ -6,7 +6,7 @@ metadata:
     pv.kubernetes.io/bound-by-controller: "yes"
     volume.beta.kubernetes.io/storage-provisioner: rook-ceph.rbd.csi.ceph.com
   labels:
-    app: wordpress
+    app: mysql 
   name: mysql-pv-claim
   namespace: wordpress
 spec:
