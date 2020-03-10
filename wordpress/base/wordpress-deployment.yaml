@@ -18,7 +18,8 @@ spec:
       initContainers:
       - name: init-container
         image: quay.io/rcook/wordpress:1.0
-        command: [ 'if [ "$(ls -A /var/www/html)" ]; then cp -rp /opt/app-root/src /var/www/html ; else echo "Contents exist"; fi' ]
+        pommand: ["/bin/bash"]
+        args: [ "if[ ! -f /var/www/html/wp-mail.php ]; then cp -rp /opt/app-root/src /var/www/html/; fi"  ]
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html
