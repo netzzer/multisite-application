@@ -20,9 +20,6 @@ spec:
         image: quay.io/rcook/wordpress:1.0
         command: ["/bin/bash"]
         args: [ "if [ ! -f /var/www/html/wp-mail.php ]; then cp -rp /opt/app-root/src /var/www/html/; fi"  ]
-        volumeMounts:
-        - name: wordpress-persistent-storage
-          mountPath: /var/www/html
       containers:
       - image: quay.io/rcook/wordpress:1.0
         imagePullPolicy: Always
