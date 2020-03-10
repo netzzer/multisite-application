@@ -7,3 +7,4 @@ resources:
 - wordpress-service.yaml
 - mysql-secret.yaml
 - wp-config-secret.yaml
+- mysql-pvc.yaml
