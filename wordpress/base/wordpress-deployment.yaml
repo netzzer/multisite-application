@@ -33,7 +33,7 @@ spec:
           subPath: wp-config.php
           readOnly: false
         - name: wordpress-persistent-storage
-          mountPath: /opt/app-root/src/wp-content
+          mountPath: /opt/app-root/src/wp-content/uploads
       volumes:
       - name: wp-config
         secret:
