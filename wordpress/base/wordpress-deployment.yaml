@@ -19,7 +19,7 @@ spec:
       - name: init-container
         image: quay.io/rcook/wordpress:1.0
         command: ["/bin/bash","-c"]
-        args: [ "curl -o /opt/app-root/save/wordpress.zip https://wordpress.org/latest.zip" ]
+        args: [ "cp -rp /opt/app-root/src /opt/app-root/save" ]
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /opt/app-root/save
