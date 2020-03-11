@@ -19,7 +19,7 @@ spec:
       - name: init-container
         image: quay.io/rcook/wordpress:1.0
         command: ["/bin/bash","-c"]
-        args: [ "cp -rp /opt/app-root/src/* /opt/app-root/save/" ]
+        args: [ "if [ ! -f /opt/app-root/save/wp-config-sample.php ]; then cp -rp /opt/app-root/src/* /opt/app-root/save/; fi" ]
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /opt/app-root/save
