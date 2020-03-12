@@ -5,7 +5,7 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: rook-ceph-block-demo
+  storageClassName: rook-ceph-block-demo2
   accessModes:
   - ReadWriteOnce
   resources:
