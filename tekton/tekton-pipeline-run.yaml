@@ -11,5 +11,5 @@ spec:
         name: multisite
   params:
     - name: pathToYamlFile
-      value: "wordpress/overlays/site2"
+      value: "tekton/wordpress/overlays/site2"
   serviceAccountName: pipeline
