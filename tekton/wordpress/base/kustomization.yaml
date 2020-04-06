@@ -1,6 +1,5 @@
 resources:
 - mysql-deployment.yaml
-- namespace.yaml
 - wordpress-route.yaml
 - mysql-service.yaml
 - wordpress-deployment.yaml
