@@ -35,7 +35,7 @@ spec:
               name: multisite-$(uid)
         params:
           - name: pathToYamlFile
-            value: "tekton/wordpress/overlays/site1"
+            value: "tekton/wordpress/overlays/site2"
         serviceAccountName: pipeline
 ---
 apiVersion: tekton.dev/v1alpha1
