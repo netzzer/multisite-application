@@ -13,28 +13,30 @@ spec:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
       metadata:
-        name: wordpress-git-$(uid)
+        name: multisite
       spec:
         type: git
         params:
         - name: revision
-          value: $(params.revision)
+          value: master
         - name: url
-          value: $(params.url)
+          value: https://github.com/cooktheryan/multisite-application.git
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
         name: wordpress-pipeline-run-$(uid)
+        generateName: wordpress-deploy-
       spec:
         pipelineRef:
           name: deploy-pipeline
-        serviceAccountNames:
-          - taskName: deploy
-            serviceAccountName: pipeline
         resources:
-          - name: app-git
+          - name: git-source
             resourceRef:
-              name: wordpress-git-$(uid)
+              name: multisite
+        params:
+          - name: pathToYamlFile
+            value: "tekton/wordpress/overlays/site1"
+        serviceAccountName: pipeline
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
@@ -55,9 +57,9 @@ spec:
   serviceAccountName: pipeline
   triggers:
     - binding:
-        name: github-triggerbinding
+        name: deploy-pipelinebinding
       template:
-        name: wordpress-build-triggertemplate
+        name: multisite-triggertemplate
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
