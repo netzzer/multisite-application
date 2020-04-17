@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: deploy-pipeline
+spec:
+  params:
+    - name: svc 
+      description: Demote webhook service
+    - name: port
+      description: Service port
+      default: 8080
+  tasks:
+  - name: deploy-to-cluster
+    taskRef:
+      name: deploy-using-kubectl
+    params:
+      - name: pathToYamlFile
+        value:  "$(params.pathToYamlFile)"
+    resources:
+      inputs:
+        - name: git-source
+          resource: git-source
+  - name: curl-to-demote 
+    taskRef:
+      name: curl
+    params:
+      - name: svc
+        value: "$(params.svc)"
+      - name: port
+        value: "$(params.port)"
