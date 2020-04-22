@@ -1,0 +1,42 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: rbd-resync-images
+spec:
+  params:
+    - name: p
+      type: string 
+      default: "scottpool"
+    - name: i1
+      type: string
+      default: "scottpool/mysql-pv-ceph123456789"
+    - name: i2
+      type: string
+      default: "scottpool/wp-pv-ceph987654321"
+  tasks:
+    - name: command-resync-images
+      retries: 1
+      taskRef:
+        name: create-configmap-command
+      params:
+        - name: pool
+          value: "$(params.p)"
+        - name: action
+          value: "resync"
+        - name: image1
+          value: "$(params.i1)"
+        - name: image2
+          value: "$(params.i2)"
+
+    - name: execute-resync-command
+      retries: 3
+      taskRef:
+        name: execute-rbd-configmap-command
+      runAfter:
+        - command-resync-images
+
+    - name: delete-resync-configmap
+      taskRef:
+        name: delete-configmap
+      runAfter:
+        - execute-resync-command
