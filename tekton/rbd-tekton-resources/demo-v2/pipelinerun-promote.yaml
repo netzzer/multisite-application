@@ -5,4 +5,4 @@ metadata:
 spec:
   serviceAccountName: pipeline
   pipelineRef:
-    name: rbd-resync-and-promote-images
+    name: rbd-promote-images
