@@ -26,6 +26,5 @@ oc create -f tekton-task.yaml
 ```
 oc create -f site2-tekton-resources/
 ```
-
 # Add webhooks to git repository
 Manual step browse to https://github.com/cooktheryan/multisite-application/settings/hooks and add webhook routes.
