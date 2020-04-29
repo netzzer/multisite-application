@@ -6,7 +6,7 @@ spec:
   params:
     - name: p
       type: string 
-      default: "scottpool"
+      default: "scottpool2"
     - name: i1
       type: string
       default: "scottpool2/mysql-pv-claim-wordpress-tekton4ee0425a-8a49-11ea-a7c4-0a580a800211"
