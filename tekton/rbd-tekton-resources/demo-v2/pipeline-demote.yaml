@@ -9,10 +9,10 @@ spec:
       default: "scottpool"
     - name: i1
       type: string
-      default: "scottpool/mysql-pv-ceph123456789"
+      default: "scottpool/mysql-pv-claim-wordpress-tektonbe1fc975-88b3-11ea-90bb-0a580a810215"
     - name: i2
       type: string
-      default: "scottpool/wp-pv-ceph987654321"
+      default: "scottpool/wp-pv-claim-wordpress-tektonbe21338d-88b3-11ea-90bb-0a580a810215"
   tasks:
     - name: command-demote-images
       taskRef:
