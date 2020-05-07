@@ -13,7 +13,7 @@ spec:
     - name: exec-rbd-command
       image: quay.io/rcook/storage-rehost:toolbox
       command: ["/tini"]
-      args: ["-g", "-s", "--", "/script/execute-ceph.sh", "--skip-watch"]
+      args: ["-g", "-s", "--", "/script/execute-ceph.sh"]
       imagePullPolicy: IfNotPresent
       env:
         - name: ROOK_ADMIN_SECRET

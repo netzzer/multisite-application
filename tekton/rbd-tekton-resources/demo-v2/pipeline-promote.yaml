@@ -9,10 +9,10 @@ spec:
       default: "scottpool2"
     - name: i1
       type: string
-      default: "scottpool2/mysql-pv-claim-wordpress-tekton4ee0425a-8a49-11ea-a7c4-0a580a800211"
+      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
       type: string
-      default: "scottpool2/wp-pv-claim-wordpress-tekton4ec66036-8a49-11ea-a7c4-0a580a800211"
+      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
   tasks:
     - name: command-promote-images
       taskRef:
