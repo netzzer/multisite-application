@@ -1,18 +1,18 @@
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: site1-demote-triggertemplate
+  name: site1-promote-triggertemplate
 spec:
   params:
     - name: p
       type: string 
-      default: "scottpool"
+      default: "scottpool2"
     - name: i1
       type: string
-      default: "scottpool/mysql-pv-ceph123456789"
+      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
       type: string
-      default: "scottpool/wp-pv-ceph987654321"
+      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
@@ -22,19 +22,19 @@ spec:
         type: git
         params:
         - name: p
-          value: "scottpool"
+          value: "scottpool2"
         - name: i1
-          value: "scottpool/mysql-pv-ceph123456789"
+          value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
         - name: i2
-          value: "scottpool/wp-pv-ceph987654321"
+          value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
-        name: site1-demote-$(uid)
-        generateName: site1-demote-
+        name: site1-promote-$(uid)
+        generateName: site1-promote-
       spec:
         pipelineRef:
-          name: rbd-demote-images
+          name: rbd-promote-images
         params:
           - name: pathToYamlFile
             value: "tekton/wordpress/overlays/site1"
@@ -43,27 +43,27 @@ spec:
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
-  name: site1-demote-pipelinebinding
+  name: site1-promote-pipelinebinding
 spec:
   params:
     - name: p
-      value: "scottpool"
+      value: "scottpool2"
     - name: i1
-      value: "scottpool/mysql-pv-ceph123456789"
+      value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
-      value: "scottpool/wp-pv-ceph987654321"
+      value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: demote-webhook
+  name: promote-webhook
 spec:
   serviceAccountName: pipeline
   triggers:
     - binding:
-        name: site1-demote-pipelinebinding
+        name: site1-promote-pipelinebinding
       template:
-        name: site1-demote-triggertemplate
+        name: site1-promote-triggertemplate
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -71,8 +71,8 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: EventListener
     app.kubernetes.io/part-of: Triggers
-    eventlistener: demote-webhook
-  name: site1-demote
+    eventlistener: promote-webhook
+  name: site1-promote
 spec:
   port:
     targetPort: 8080
@@ -80,5 +80,5 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: el-webhook
+    name: el-promote-webhook
     weight: 100

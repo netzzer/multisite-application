@@ -6,13 +6,13 @@ spec:
   params:
     - name: p
       type: string 
-      default: "scottpool"
+      default: "scottpool2"
     - name: i1
       type: string
-      default: "scottpool/mysql-pv-ceph123456789"
+      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
       type: string
-      default: "scottpool/wp-pv-ceph987654321"
+      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
@@ -22,11 +22,11 @@ spec:
         type: git
         params:
         - name: p
-          value: "scottpool"
+          value: "scottpool2"
         - name: i1
-          value: "scottpool/mysql-pv-ceph123456789"
+          value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
         - name: i2
-          value: "scottpool/wp-pv-ceph987654321"
+          value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
@@ -47,11 +47,11 @@ metadata:
 spec:
   params:
     - name: p
-      value: "scottpool"
+      value: "scottpool2"
     - name: i1
-      value: "scottpool/mysql-pv-ceph123456789"
+      value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
-      value: "scottpool/wp-pv-ceph987654321"
+      value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener
@@ -80,5 +80,5 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: el-webhook
+    name: el-promote-webhook
     weight: 100

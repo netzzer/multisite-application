@@ -1,18 +1,18 @@
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: site2-resync-triggertemplate
+  name: site1-demote-triggertemplate
 spec:
   params:
     - name: p
       type: string 
-      default: "scottpool"
+      default: "scottpool2"
     - name: i1
       type: string
-      default: "scottpool/mysql-pv-ceph123456789"
+      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
       type: string
-      default: "scottpool/wp-pv-ceph987654321"
+      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
@@ -22,48 +22,48 @@ spec:
         type: git
         params:
         - name: p
-          value: "scottpool"
+          value: "scottpool2"
         - name: i1
-          value: "scottpool/mysql-pv-ceph123456789"
+          value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
         - name: i2
-          value: "scottpool/wp-pv-ceph987654321"
+          value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
-        name: site2-resync-$(uid)
-        generateName: site2-resync-
+        name: site1-demote-$(uid)
+        generateName: site1-demote-
       spec:
         pipelineRef:
-          name: rbd-resync-images
+          name: rbd-demote-images
         params:
           - name: pathToYamlFile
-            value: "tekton/wordpress/overlays/site2"
+            value: "tekton/wordpress/overlays/site1"
         serviceAccountName: pipeline
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
-  name: site2-resync-pipelinebinding
+  name: site1-demote-pipelinebinding
 spec:
   params:
     - name: p
-      value: "scottpool"
+      value: "scottpool2"
     - name: i1
-      value: "scottpool/mysql-pv-ceph123456789"
+      value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
     - name: i2
-      value: "scottpool/wp-pv-ceph987654321"
+      value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: resync-webhook
+  name: demote-webhook
 spec:
   serviceAccountName: pipeline
   triggers:
     - binding:
-        name: site2-resync-pipelinebinding
+        name: site1-demote-pipelinebinding
       template:
-        name: site2-resync-triggertemplate
+        name: site1-demote-triggertemplate
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -71,8 +71,8 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: EventListener
     app.kubernetes.io/part-of: Triggers
-    eventlistener: resync-webhook
-  name: site2-resync
+    eventlistener: demote-webhook
+  name: site1-demote
 spec:
   port:
     targetPort: 8080
@@ -80,5 +80,5 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: el-webhook
+    name: el-demote-webhook
     weight: 100
