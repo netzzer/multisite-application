@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
   name: site2-resync-triggertemplate
@@ -40,7 +40,7 @@ spec:
             value: "tekton/wordpress/overlays/site2"
         serviceAccountName: pipeline
 ---
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
   name: site2-resync-pipelinebinding
@@ -53,17 +53,17 @@ spec:
     - name: i2
       value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
 ---
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: resync-webhook
 spec:
   serviceAccountName: pipeline
   triggers:
-    - binding:
-        name: site2-resync-pipelinebinding
-      template:
-        name: site2-resync-triggertemplate
+  - bindings:
+    - name: site2-resync-pipelinebinding
+    template:
+      name: site2-resync-triggertemplate
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
