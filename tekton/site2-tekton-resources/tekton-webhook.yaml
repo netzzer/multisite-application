@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
   name: multisite-triggertemplate
@@ -38,7 +38,7 @@ spec:
             value: "tekton/wordpress/overlays/site2"
         serviceAccountName: pipeline
 ---
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding
 metadata:
   name: deploy-pipelinebinding
@@ -49,17 +49,17 @@ spec:
     - name: url
       value: $(body.repository.url)
 ---
-apiVersion: tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: webhook
 spec:
   serviceAccountName: pipeline
   triggers:
-    - binding:
-        name: deploy-pipelinebinding
-      template:
-        name: multisite-triggertemplate
+  - bindings:
+    - name: deploy-pipelinebinding
+    template:
+      name: multisite-triggertemplate
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
