@@ -6,7 +6,7 @@ spec:
   params:
     - name: svc 
       description: Demote webhook service
-      default: site1-resync-rook-ceph.apps.site1.sysdeseng.com
+      default: site1-resync-rook-ceph.apps.site1.makestoragegreatagain.com
   tasks:
   - name: curl-to-sync
     taskRef:

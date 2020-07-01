@@ -6,7 +6,7 @@ spec:
   params:
     - name: svc 
       description: promote webhook service
-      default: site1-promote-rook-ceph.apps.site1.sysdeseng.com
+      default: site1-promote-rook-ceph.apps.site1.makestoragegreatagain.com
   tasks:
   - name: curl-to-sync
     taskRef:

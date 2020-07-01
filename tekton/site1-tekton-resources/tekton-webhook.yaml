@@ -20,7 +20,7 @@ spec:
         - name: revision
           value: master
         - name: url
-          value: https://github.com/cooktheryan/multisite-application.git
+          value: https://github.com/netzzer/multisite-application.git
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:

@@ -11,7 +11,7 @@ metadata:
   name: wordpress
   namespace: wordpress-tekton
 spec:
-  host: wordpress.demo-sysdeseng.com
+  host: rbdmirror.demo-sysdeseng.com
   port:
     targetPort: port-1
   to:
