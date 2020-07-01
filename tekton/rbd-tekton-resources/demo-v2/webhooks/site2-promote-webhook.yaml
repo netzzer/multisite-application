@@ -6,13 +6,13 @@ spec:
   params:
     - name: p
       type: string 
-      default: "scottpool2"
+      default: "rbd"
     - name: i1
       type: string
-      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
+      default: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
     - name: i2
       type: string
-      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
+      default: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
@@ -22,11 +22,11 @@ spec:
         type: git
         params:
         - name: p
-          value: "scottpool2"
+          value: "rbd"
         - name: i1
-          value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
+          value: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
         - name: i2
-          value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
+          value: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
@@ -47,11 +47,11 @@ metadata:
 spec:
   params:
     - name: p
-      value: "scottpool2"
+      value: "rbd"
     - name: i1
-      value: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
+      value: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
     - name: i2
-      value: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
+      value: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener

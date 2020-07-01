@@ -6,13 +6,13 @@ spec:
   params:
     - name: p
       type: string 
-      default: "scottpool2"
+      default: "rbd"
     - name: i1
       type: string
-      default: "scottpool2/mysql-pv-claim-wordpress-tekton90f1ce51-9082-11ea-a48b-0a580a82024a"
+      default: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
     - name: i2
       type: string
-      default: "scottpool2/wp-pv-claim-wordpress-tekton90f1cf28-9082-11ea-a48b-0a580a82024a"
+      default: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
   tasks:
     - name: command-promote-images
       taskRef:
