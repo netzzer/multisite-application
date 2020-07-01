@@ -45,9 +45,9 @@ metadata:
 spec:
   params:
     - name: revision
-      value: $(body.head_commit.id)
+      value: master
     - name: url
-      value: $(body.repository.url)
+      value: https://github.com/netzzer/multisite-application.git
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
