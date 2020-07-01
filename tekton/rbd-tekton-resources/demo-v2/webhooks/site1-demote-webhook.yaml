@@ -12,7 +12,7 @@ spec:
       default: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
     - name: i2
       type: string
-      default: "rbd/wpwp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
+      default: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineResource
@@ -26,7 +26,7 @@ spec:
         - name: i1
           value: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
         - name: i2
-          value: "rbd/wpwp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
+          value: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
       metadata:
@@ -51,7 +51,7 @@ spec:
     - name: i1
       value: "rbd/mysql-pv-claim-wordpress-tektonfa0c9c9a-bb35-11ea-beb2-0a580a830019"
     - name: i2
-      value: "rbd/wpwp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
+      value: "rbd/wp-pv-claim-wordpress-tektonfa0a6dfa-bb35-11ea-beb2-0a580a830019"
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
