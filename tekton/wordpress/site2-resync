@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -k https://site2-resync-rook-ceph.apps.site2.makestoragegreatagain.com

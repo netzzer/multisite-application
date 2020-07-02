@@ -1,0 +1,4 @@
+#!/bin/bash
+sed -i 's/replicas: 0/replicas: 1/g' overlays/site2/*
+git commit -am "site2 to 1 replicas"
+git push origin master
